@@ -28,12 +28,6 @@ Source-vs-local parity:
 npm run test:fidelity
 ```
 
-Source-vs-local-vs-production parity:
-
-```bash
-npm run test:fidelity:prod
-```
-
 ## Publish
 
 Deploy the current directory to Vercel production:
