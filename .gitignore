@@ -1,3 +1,5 @@
 .DS_Store
 .vercel/
 .verify/
+.fidelity-output/
+node_modules/
