@@ -667,6 +667,16 @@
       padding: 14px;
       background: rgba(255,255,255,0.92);
     }
+    .combo-card-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 12px;
+      border: 1px solid rgba(91, 122, 98, 0.14);
+      background: linear-gradient(180deg, #f4f7f4, #e9efea);
+    }
     .combo-card h3 {
       margin: 0 0 10px;
       font-size: 15px;
@@ -2145,6 +2155,10 @@ const TYPE_IMAGES = {
       };
     }
 
+    function getViralImageSrc(code) {
+      return `./image/viral-${code}.png`;
+    }
+
     function computeViralProfile(levels) {
       const seed = buildAnswerSeed();
       const ranked = VIRAL_ARCHETYPES
@@ -2271,6 +2285,7 @@ const TYPE_IMAGES = {
       document.getElementById('comboSummary').textContent = combo.summary;
 
       document.getElementById('primaryComboCard').innerHTML = `
+        <img class="combo-card-image" src="${getViralImageSrc(primary.code)}" alt="${primary.code} ${primary.cn} 海报" />
         <div class="mini-kicker">主发疯标签 · ${primary.scene}</div>
         <div class="mini-title">${primary.code} / ${primary.cn}</div>
         <p>${primary.alias}</p>
@@ -2279,6 +2294,7 @@ const TYPE_IMAGES = {
       `;
 
       document.getElementById('secondaryComboCard').innerHTML = `
+        <img class="combo-card-image" src="${getViralImageSrc(secondary.code)}" alt="${secondary.code} ${secondary.cn} 海报" />
         <div class="mini-kicker">副发疯标签 · ${secondary.scene}</div>
         <div class="mini-title">${secondary.code} / ${secondary.cn}</div>
         <p>${secondary.alias}</p>
@@ -2287,6 +2303,7 @@ const TYPE_IMAGES = {
       `;
 
       document.getElementById('nemesisCard').innerHTML = `
+        <img class="combo-card-image" src="${getViralImageSrc(nemesis.code)}" alt="${nemesis.code} ${nemesis.cn} 海报" />
         <div class="mini-kicker">赛博克星</div>
         <div class="mini-title">${nemesis.code} / ${nemesis.cn}</div>
         <p>${nemesis.alias}</p>

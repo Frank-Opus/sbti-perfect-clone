@@ -77,6 +77,17 @@ async function main() {
     const comboPrimary = await page.locator("#comboPrimaryTag").textContent();
     const comboSecondary = await page.locator("#comboSecondaryTag").textContent();
     const nemesis = await page.locator("#nemesisCard").innerText();
+    const imageStates = await page.evaluate(() => {
+      return ["primaryComboCard", "secondaryComboCard", "nemesisCard"].map((id) => {
+        const img = document.querySelector(`#${id} img`);
+        return {
+          id,
+          exists: !!img,
+          width: img?.naturalWidth ?? 0,
+          src: img?.getAttribute("src") ?? ""
+        };
+      });
+    });
 
     ensureTruthy(mainType, "mainType");
     ensureTruthy(comboDiagnosis, "comboDiagnosis");
@@ -86,6 +97,12 @@ async function main() {
 
     if (!comboDiagnosis.includes("+") || !comboDiagnosis.includes("确诊")) {
       throw new Error(`Unexpected combo diagnosis copy: ${comboDiagnosis}`);
+    }
+
+    for (const item of imageStates) {
+      if (!item.exists || item.width <= 0 || !item.src) {
+        throw new Error(`Missing viral image for ${item.id}: ${JSON.stringify(item)}`);
+      }
     }
 
     await browser.close();
