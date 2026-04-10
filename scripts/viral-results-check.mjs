@@ -34,7 +34,7 @@ function startLocalServer() {
 }
 
 async function answerQuiz(page) {
-  await page.getByRole("button", { name: "开始测试" }).click();
+  await page.getByRole("button", { name: /开始/ }).click();
   await page.waitForSelector(".question");
 
   let previousCount = -1;
@@ -52,7 +52,7 @@ async function answerQuiz(page) {
     }
   }
 
-  await page.getByRole("button", { name: "提交并查看结果" }).click();
+  await page.getByRole("button", { name: /提交/ }).click();
   await page.waitForSelector("#result.screen.active");
 }
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SBTI 人格测试</title>
+  <title>赛博发疯标签系统</title>
   <style>
     :root {
       --bg: #f6faf6;
@@ -293,6 +293,23 @@
       flex-wrap: wrap;
       margin-top: 18px;
       padding-top: 6px;
+    }
+
+    .intro-sub {
+      max-width: 680px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
     }
 
     .hint {
@@ -792,11 +809,17 @@
   <div class="shell">
     <section id="intro" class="screen active">
       <div class="hero card hero-minimal">
-        <h1>MBTI已经过时，SBTI来了。</h1>
-        <div class="hero-actions hero-actions-single">
-          <button id="startBtn" class="btn-primary">开始测试</button>
+        <h1>赛博发疯标签系统</h1>
+        <p class="intro-sub">不分析你的人格，不拯救你的灵魂，只负责把你的精神状态做成能截图发群的电子病历。</p>
+        <div class="hero-tags">
+          <span class="badge">20 个发疯标签</span>
+          <span class="badge">组合技</span>
+          <span class="badge">赛博克星</span>
         </div>
-        <div style="padding-top: 2rem; display: flex; flex-direction: column;">
+        <div class="hero-actions hero-actions-single">
+          <button id="startBtn" class="btn-primary">开始赛博确诊</button>
+        </div>
+        <div style="padding-top: 2rem; display: flex; flex-direction: column; gap: 6px;">
           <span>
             复刻与维护：
             <strong>Frank</strong>
@@ -806,10 +829,10 @@
             <a href="https://space.bilibili.com/417038183">B站@蛆肉儿串儿</a>
           </span>
           <span>
-            托管：Cloudflare (免费)
+            当前版本：纯赛博发疯标签系统
           </span>
           <span>
-            域名：Spaceship (自费)
+            建议玩法：测完直接截图甩进闺蜜群 / 兄弟群
           </span>
         </div>
       </div>
@@ -825,10 +848,10 @@
         <div id="questionList" class="question-list"></div>
 
         <div class="actions-bottom">
-          <div class="hint" id="testHint">全选完才会放行。世界已经够乱了，起码把题做完整。</div>
+          <div class="hint" id="testHint">全选完才会放行。发疯也得走流程。</div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
             <button id="backIntroBtn" class="btn-secondary">返回首页</button>
-            <button id="submitBtn" class="btn-primary" disabled>提交并查看结果</button>
+            <button id="submitBtn" class="btn-primary" disabled>提交，开始赛博确诊</button>
           </div>
         </div>
       </div>
@@ -841,19 +864,19 @@
           <div class="result-top">
             <div class="poster-box" id="posterBox">
               <img id="posterImage" class="poster-image" alt="人格结果图" />
-              <div id="posterCaption" class="poster-caption">怎么样，被我拿捏了吧？</div>
+              <div id="posterCaption" class="poster-caption">你的电子病历会在这里生成。</div>
             </div>
 
             <div class="type-box">
-              <div class="type-kicker" id="resultModeKicker">你的主类型</div>
-              <div class="type-name" id="resultTypeName">CTRL（拿捏者）</div>
-              <div class="match" id="matchBadge">匹配度 92%</div>
-              <div class="type-subname" id="resultTypeSub">系统备注会显示在这里。</div>
+              <div class="type-kicker" id="resultModeKicker">你的主发疯标签</div>
+              <div class="type-name" id="resultTypeName">MALO（吗喽）</div>
+              <div class="match" id="matchBadge">发疯纯度 92%</div>
+              <div class="type-subname" id="resultTypeSub">赛博病历摘要会显示在这里。</div>
             </div>
           </div>
 
           <div class="analysis-box">
-            <h3>该人格的简单解读</h3>
+            <h3>系统判词</h3>
             <p id="resultDesc"></p>
           </div>
 
@@ -890,17 +913,17 @@
           </div>
 
           <div class="dim-box">
-            <h3>十五维度评分</h3>
+            <h3>15 个发疯切片</h3>
             <div id="dimList" class="dim-list"></div>
           </div>
 
           <div class="note-box">
-            <h3>友情提示</h3>
-            <p id="funNote">本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。</p>
+            <h3>系统医嘱</h3>
+            <p id="funNote">本系统只负责精准嘴臭，不负责临床治疗。</p>
           </div>
 
                     <details class="author-box">
-            <summary>作者的话</summary>
+            <summary>作者与版本说明</summary>
             <div class="author-content">
               <p>本测试首发于b站up主蛆肉儿串儿（UID417038183），初衷是劝诫一位爱喝酒的朋友戒酒。</p>
               <p>由于作者的人格是SHIT愤世者，所以平等的攻击了各位，在此抱歉！！不过我是一个绝世大美女，你们一定会原谅我，有B站的朋友们也可以关注我。</p>
@@ -912,8 +935,8 @@
 
         <div class="result-actions">
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <button id="restartBtn" class="btn-secondary">重新测试</button>
-            <button id="toTopBtn" class="btn-primary">回到首页</button>
+            <button id="restartBtn" class="btn-secondary">再疯一次</button>
+            <button id="toTopBtn" class="btn-primary">返回发疯入口</button>
           </div>
         </div>
       </div>
@@ -924,291 +947,291 @@
   
   <script>
     const dimensionMeta = {
-      S1: { name: 'S1 自尊自信', model: '自我模型' },
-      S2: { name: 'S2 自我清晰度', model: '自我模型' },
-      S3: { name: 'S3 核心价值', model: '自我模型' },
-      E1: { name: 'E1 依恋安全感', model: '情感模型' },
-      E2: { name: 'E2 情感投入度', model: '情感模型' },
-      E3: { name: 'E3 边界与依赖', model: '情感模型' },
-      A1: { name: 'A1 世界观倾向', model: '态度模型' },
-      A2: { name: 'A2 规则与灵活度', model: '态度模型' },
-      A3: { name: 'A3 人生意义感', model: '态度模型' },
-      Ac1: { name: 'Ac1 动机导向', model: '行动驱力模型' },
-      Ac2: { name: 'Ac2 决策风格', model: '行动驱力模型' },
-      Ac3: { name: 'Ac3 执行模式', model: '行动驱力模型' },
-      So1: { name: 'So1 社交主动性', model: '社交模型' },
-      So2: { name: 'So2 人际边界感', model: '社交模型' },
-      So3: { name: 'So3 表达与真实度', model: '社交模型' }
+      S1: { name: 'S1 破防阈值', model: '自我报警模型' },
+      S2: { name: 'S2 自我清醒度', model: '自我报警模型' },
+      S3: { name: 'S3 野心残量', model: '自我报警模型' },
+      E1: { name: 'E1 消息内耗值', model: '情绪震荡模型' },
+      E2: { name: 'E2 上头浓度', model: '情绪震荡模型' },
+      E3: { name: 'E3 电子围栏', model: '情绪震荡模型' },
+      A1: { name: 'A1 世界恶意感知', model: '世界观模型' },
+      A2: { name: 'A2 发疯守序度', model: '世界观模型' },
+      A3: { name: 'A3 人生电量', model: '世界观模型' },
+      Ac1: { name: 'Ac1 求生动机', model: '行动尸变模型' },
+      Ac2: { name: 'Ac2 犹豫卡顿率', model: '行动尸变模型' },
+      Ac3: { name: 'Ac3 拖延尸变度', model: '行动尸变模型' },
+      So1: { name: 'So1 群聊出没率', model: '社交异化模型' },
+      So2: { name: 'So2 贴贴排斥度', model: '社交异化模型' },
+      So3: { name: 'So3 阴阳切换术', model: '社交异化模型' }
     };
     const questions = [
       {
         id: 'q1', dim: 'S1',
-        text: '我不仅是屌丝，我还是joker,我还是咸鱼，这辈子没谈过一场恋爱，胆怯又自卑，我的青春就是一场又一场的意淫，每一天幻想着我也能有一个女孩子和我一起压马路，一起逛街，一起玩，现实却是爆了父母金币，读了个烂学校，混日子之后找班上，没有理想，没有目标，没有能力的三无人员，每次看到你能在网上开屌丝的玩笑，我都想哭，我就是地底下的老鼠，透过下水井的缝隙，窥探地上的各种美好，每一次看到这种都是对我心灵的一次伤害，对我生存空间的一次压缩，求求哥们给我们这种小丑一点活路吧，我真的不想在白天把枕巾哭湿一大片',
+        text: '刷到同龄人升职、恋爱、暴富、环球旅行四连击时，你更像哪种反应？',
         options: [
-          { label: '我哭了。。', value: 1 },
-          { label: '这是什么。。', value: 2 },
-          { label: '这不是我！', value: 3 }
+          { label: '先破防，再偷偷拉黑。', value: 1 },
+          { label: '酸一下，然后继续刷。', value: 2 },
+          { label: '关我屁事，下一条。', value: 3 }
         ]
       },
       {
         id: 'q2', dim: 'S1',
-        text: '我不够好，周围的人都比我优秀',
+        text: '你在公开场合出糗后，精神状态一般会持续掉线多久？',
         options: [
-          { label: '确实', value: 1 },
-          { label: '有时', value: 2 },
-          { label: '不是', value: 3 }
+          { label: '能反复回放三天三夜。', value: 1 },
+          { label: '当天会难受，过后还能活。', value: 2 },
+          { label: '尴尬两秒，继续做人。', value: 3 }
         ]
       },
       {
         id: 'q3', dim: 'S2',
-        text: '我很清楚真正的自己是什么样的',
+        text: '凌晨三点你最容易对自己说哪句话？',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '我是不是纯废物。', value: 1 },
+          { label: '我大概知道自己有病，但还没想明白是哪种。', value: 2 },
+          { label: '我知道自己在发什么疯。', value: 3 }
         ]
       },
       {
         id: 'q4', dim: 'S2',
-        text: '我内心有真正追求的东西',
+        text: '当别人问“你最近到底怎么了”，你的内心更接近：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '我也不知道，我就是一团烂雾。', value: 1 },
+          { label: '能讲一点，但讲不全。', value: 2 },
+          { label: '我门清，只是懒得解释。', value: 3 }
         ]
       },
       {
         id: 'q5', dim: 'S3',
-        text: '我一定要不断往上爬、变得更厉害',
+        text: '如果人生突然给你一个逆袭窗口，你会：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '算了，麻烦，还是躺着。', value: 1 },
+          { label: '先观望，看我那天心情。', value: 2 },
+          { label: '冲，老子要把命改了。', value: 3 }
         ]
       },
       {
         id: 'q6', dim: 'S3',
-        text: '外人的评价对我来说无所吊谓。',
+        text: '别人一激你，你最常见的走向是：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '更想摆烂，谁爱证明谁证明。', value: 1 },
+          { label: '嘴硬一下，再看看。', value: 2 },
+          { label: '反手狠狠干给他看。', value: 3 }
         ]
       },
       {
         id: 'q7', dim: 'E1',
-        text: '对象超过5小时没回消息，说自己窜稀了，你会怎么想？',
+        text: '喜欢的人已读不回，你脑内默认剧情是？',
         options: [
-          { label: '拉稀不可能5小时，也许ta隐瞒了我。', value: 1 },
-          { label: '在信任和怀疑之间摇摆。', value: 2 },
-          { label: '也许今天ta真的不太舒服。', value: 3 }
+          { label: '结束了，ta 应该已经开始讨厌我了。', value: 1 },
+          { label: '再等等，也许人家真有事。', value: 2 },
+          { label: '爱回不回，我先去忙别的。', value: 3 }
         ]
       },
       {
         id: 'q8', dim: 'E1',
-        text: '我在感情里经常担心被对方抛弃',
+        text: '你在关系里的安全感通常像什么？',
         options: [
-          { label: '是的', value: 1 },
-          { label: '偶尔', value: 2 },
-          { label: '不是', value: 3 }
+          { label: '像拼夕夕现金提现，永远差最后一点。', value: 1 },
+          { label: '像地铁信号，时有时无。', value: 2 },
+          { label: '像宽带，偶尔波动但总体在线。', value: 3 }
         ]
       },
       {
         id: 'q9', dim: 'E2',
-        text: '我对天发誓，我对待每一份感情都是认真的！',
+        text: '遇到一个让你很上头的人，你的默认姿势是：',
         options: [
-          { label: '并没有', value: 1 },
-          { label: '也许？', value: 2 },
-          { label: '是的！（问心无愧骄傲脸）', value: 3 }
+          { label: '先撤，我不想再次成为笑话。', value: 1 },
+          { label: '一边上头一边嘴硬。', value: 2 },
+          { label: '直接栽进去，爱咋咋地。', value: 3 }
         ]
       },
       {
         id: 'q10', dim: 'E2',
-        text: '你的恋爱对象是一个尊老爱幼，温柔敦厚，洁身自好，光明磊落，大义凛然，能言善辩，口才流利，观察入微，见多识广，博学多才，诲人不倦，和蔼可亲，平易近人，心地善良，慈眉善目，积极进取，意气风发，玉树临风，国色天香，倾国倾城，花容月貌的人，此时你会？',
+        text: '如果关系崩了，你通常会：',
         options: [
-          { label: '就算ta再优秀我也不会陷入太深。', value: 1 },
-          { label: '会介于A和C之间。', value: 2 },
-          { label: '会非常珍惜ta，也许会变成恋爱脑。', value: 3 }
+          { label: '表面秒切断，内里自动冰封。', value: 1 },
+          { label: '删删留留，反复横跳。', value: 2 },
+          { label: '持续上头，emo 到别人都看出来。', value: 3 }
         ]
       },
       {
         id: 'q11', dim: 'E3',
-        text: '恋爱后，对象非常黏人，你作何感想？',
+        text: '对象/朋友一天黏你八百次，你的第一感受是：',
         options: [
-          { label: '那很爽了', value: 1 },
-          { label: '都行无所谓', value: 2 },
-          { label: '我更喜欢保留独立空间', value: 3 }
+          { label: '挺好，说明离不开我。', value: 1 },
+          { label: '看人，有时甜有时烦。', value: 2 },
+          { label: '退退退，我需要呼吸。', value: 3 }
         ]
       },
       {
         id: 'q12', dim: 'E3',
-        text: '我在任何关系里都很重视个人空间',
+        text: '你最讨厌哪种社交入侵？',
         options: [
-          { label: '我更喜欢依赖与被依赖', value: 1 },
-          { label: '看情况', value: 2 },
-          { label: '是的！（斩钉截铁地说道）', value: 3 }
+          { label: '没人来找我。', value: 1 },
+          { label: '先打招呼再靠近。', value: 2 },
+          { label: '没边界感地往我世界里拱。', value: 3 }
         ]
       },
       {
         id: 'q13', dim: 'A1',
-        text: '大多数人是善良的',
+        text: '陌生人突然对你很好时，你内心弹出的第一条字幕是：',
         options: [
-          { label: '其实邪恶的人心比世界上的痔疮更多。', value: 1 },
-          { label: '也许吧。', value: 2 },
-          { label: '是的，我愿相信好人更多。', value: 3 }
+          { label: '这人是不是要骗我。', value: 1 },
+          { label: '先观察，不急着下结论。', value: 2 },
+          { label: '人还怪好嘞。', value: 3 }
         ]
       },
       {
         id: 'q14', dim: 'A1',
-        text: '你走在街上，一位萌萌的小女孩蹦蹦跳跳地朝你走来（正脸、侧脸看都萌，用vivo、苹果、华为、OPPO手机看都萌，实在是非常萌的那种），她递给你一根棒棒糖，此时你作何感想？',
+        text: '有人夸你“你今天状态不错”，你第一反应更像：',
         options: [
-          { label: '呜呜她真好真可爱！居然给我棒棒糖！', value: 3 },
-          { label: '一脸懵逼，作挠头状', value: 2 },
-          { label: '这也许是一种新型诈骗？还是走开为好。', value: 1 }
+          { label: '别演，我知道你有后手。', value: 1 },
+          { label: '谢谢，但总觉得哪里怪怪的。', value: 2 },
+          { label: '谢谢，我也觉得。', value: 3 }
         ]
       },
       {
         id: 'q15', dim: 'A2',
-        text: '快考试了，学校规定必须上晚自习，请假会扣分，但今晚你约了女/男神一起玩《绝地求生：刺激战场》（一款刺激的游戏），你怎么办？',
+        text: '明知规则写着不许，但机会看起来真的很香时，你会：',
         options: [
-          { label: '翘了！反正就一次！', value: 1 },
-          { label: '干脆请个假吧。', value: 2 },
-          { label: '都快考试了还去啥。', value: 3 }
+          { label: '先冲了再说。', value: 1 },
+          { label: '看风险和后果。', value: 2 },
+          { label: '算了，还是按规矩来。', value: 3 }
         ]
       },
       {
         id: 'q16', dim: 'A2',
-        text: '我喜欢打破常规，不喜欢被束缚',
+        text: '别人一对你说“你应该这样做”，你的内心音量通常是：',
         options: [
-          { label: '认同', value: 1 },
-          { label: '保持中立', value: 2 },
-          { label: '不认同', value: 3 }
+          { label: '凭什么管我？', value: 1 },
+          { label: '听听再说。', value: 2 },
+          { label: '如果合理，也不是不能配合。', value: 3 }
         ]
       },
       {
         id: 'q17', dim: 'A3',
-        text: '我做事通常有目标。',
+        text: '你最近的人生运行状态更像：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '彻底挂机。', value: 1 },
+          { label: '半开机，偶尔有信号。', value: 2 },
+          { label: '有主线任务在跑。', value: 3 }
         ]
       },
       {
         id: 'q18', dim: 'A3',
-        text: '突然某一天，我意识到人生哪有什么他妈的狗屁意义，人不过是和动物一样被各种欲望支配着，纯纯是被激素控制的东西，饿了就吃，困了就睡，一发情就想交配，我们简直和猪狗一样没什么区别。',
+        text: '想到未来这件事时，你更常见的感受是：',
         options: [
-          { label: '是这样的。', value: 1 },
-          { label: '也许是，也许不是。', value: 2 },
-          { label: '这简直是胡扯', value: 3 }
+          { label: '没什么意义，活一天算一天。', value: 1 },
+          { label: '模糊，但还没彻底放弃。', value: 2 },
+          { label: '我知道自己还想搏点什么。', value: 3 }
         ]
       },
       {
         id: 'q19', dim: 'Ac1',
-        text: '我做事主要为了取得成果和进步，而不是避免麻烦和风险。',
+        text: '你做事更像下面哪一种驱动？',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '只求别翻车。', value: 1 },
+          { label: '先把今天混过去。', value: 2 },
+          { label: '既然做了就想搞成。', value: 3 }
         ]
       },
       {
         id: 'q20', dim: 'Ac1',
-        text: '你因便秘坐在马桶上（已长达30分钟），拉不出很难受。此时你更像',
+        text: '你在马桶上蹲了半小时还没结果，此时更像：',
         options: [
-          { label: '再坐三十分钟看看，说不定就有了。', value: 1 },
-          { label: '用力拍打自己的屁股并说：“死屁股，快拉啊！”', value: 2 },
-          { label: '使用开塞露，快点拉出来才好。', value: 3 }
+          { label: '继续坐着赌奇迹。', value: 1 },
+          { label: '拍两下屁股骂两句。', value: 2 },
+          { label: '立刻找办法，快点解决。', value: 3 }
         ]
       },
       {
         id: 'q21', dim: 'Ac2',
-        text: '我做决定比较果断，不喜欢犹豫',
+        text: '遇到要拍板的事，你通常：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '脑内开会到散场。', value: 1 },
+          { label: '会想一会儿，但不至于卡死。', value: 2 },
+          { label: '差不多就拍。', value: 3 }
         ]
       },
       {
         id: 'q22', dim: 'Ac2',
-        text: '此题没有题目，请盲选',
+        text: '看到一条必须回复的消息，你更常见的流程是：',
         options: [
-          { label: '反复思考后感觉应该选A？', value: 1 },
-          { label: '啊，要不选B？', value: 2 },
-          { label: '不会就选C？', value: 3 }
+          { label: '先放着，等会儿再说。', value: 1 },
+          { label: '打了又删，删了又打。', value: 2 },
+          { label: '回了再说，先别欠着。', value: 3 }
         ]
       },
       {
         id: 'q23', dim: 'Ac3',
-        text: '别人说你“执行力强”，你内心更接近哪句？',
+        text: '你和死线的关系最像：',
         options: [
-          { label: '我被逼到最后确实执行力超强。。。', value: 1 },
-          { label: '啊，有时候吧。', value: 2 },
-          { label: '是的，事情本来就该被推进', value: 3 }
+          { label: '没有死线我就是尸体。', value: 1 },
+          { label: '会拖，但还能抢救。', value: 2 },
+          { label: '最好提前收工。', value: 3 }
         ]
       },
       {
         id: 'q24', dim: 'Ac3',
-        text: '我做事常常有计划，____',
+        text: '计划表对你来说更像：',
         options: [
-          { label: '然而计划不如变化快。', value: 1 },
-          { label: '有时能完成，有时不能。', value: 2 },
-          { label: '我讨厌被打破计划。', value: 3 }
+          { label: '电子摆设。', value: 1 },
+          { label: '有时有用，有时喂狗。', value: 2 },
+          { label: '我的命门，别乱动。', value: 3 }
         ]
       },
       {
         id: 'q25', dim: 'So1',
-        text: '你因玩《第五人格》（一款刺激的游戏）而结识许多网友，并被邀请线下见面，你的想法是？',
+        text: '朋友拉你去见一群新朋友时，你的默认状态是：',
         options: [
-          { label: '网上口嗨下就算了，真见面还是有点忐忑。', value: 1 },
-          { label: '见网友也挺好，反正谁来聊我就聊两句。', value: 2 },
-          { label: '我会打扮一番并热情聊天，万一呢，我是说万一呢？', value: 3 }
+          { label: '我先想个理由不去。', value: 1 },
+          { label: '看当天社交电量。', value: 2 },
+          { label: '去就去，顺便观察人类。', value: 3 }
         ]
       },
       {
         id: 'q26', dim: 'So1',
-        text: '朋友带了ta的朋友一起来玩，你最可能的状态是',
+        text: '群聊冷场五分钟后，你最可能：',
         options: [
-          { label: '对“朋友的朋友”天然有点距离感，怕影响二人关系', value: 1 },
-          { label: '看对方，能玩就玩。', value: 2 },
-          { label: '朋友的朋友应该也算我的朋友！要热情聊天', value: 3 }
+          { label: '继续潜水装死。', value: 1 },
+          { label: '丢个表情包试试水。', value: 2 },
+          { label: '主动整活把场子拉回来。', value: 3 }
         ]
       },
       {
         id: 'q27', dim: 'So2',
-        text: '我和人相处主打一个电子围栏，靠太近会自动报警。',
+        text: '别人一打探你的私生活，你的边界系统会：',
         options: [
-          { label: '认同', value: 3 },
-          { label: '中立', value: 2 },
-          { label: '不认同', value: 1 }
+          { label: '立刻拉警报。', value: 3 },
+          { label: '看关系决定开几分。', value: 2 },
+          { label: '聊聊也无妨。', value: 1 }
         ]
       },
       {
         id: 'q28', dim: 'So2',
-        text: '我渴望和我信任的人关系密切，熟得像失散多年的亲戚。',
+        text: '熟人毫无预警地往你床上一瘫，你的感受更像：',
         options: [
-          { label: '认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '不认同', value: 3 }
+          { label: '也挺热闹，坐吧。', value: 1 },
+          { label: '你先说你要干嘛。', value: 2 },
+          { label: '从我的圣地滚下去。', value: 3 }
         ]
       },
       {
         id: 'q29', dim: 'So3',
-        text: '有时候你明明对一件事有不同的、负面的看法，但最后没说出来。多数情况下原因是：',
+        text: '你明明不爽但还要维持体面时，最常见的出招方式是：',
         options: [
-          { label: '这种情况较少。', value: 1 },
-          { label: '可能碍于情面或者关系。', value: 2 },
-          { label: '不想让别人知道自己是个阴暗的人。', value: 3 }
+          { label: '直接说，不想忍。', value: 1 },
+          { label: '阴阳两句，点到为止。', value: 2 },
+          { label: '憋住，回头自己内耗。', value: 3 }
         ]
       },
       {
         id: 'q30', dim: 'So3',
-        text: '我在不同人面前会表现出不一样的自己',
+        text: '你在不同人面前的版本号通常是：',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: '差不多一个版本。', value: 1 },
+          { label: '小修小补，会切一点。', value: 2 },
+          { label: '多版本并行，场景不同人设不同。', value: 3 }
         ]
       }
     ];
@@ -1217,22 +1240,22 @@
         id: 'drink_gate_q1',
         special: true,
         kind: 'drink_gate',
-        text: '您平时有什么爱好？',
+        text: '如果周五晚上让你从下面四个选项里挑一个续命方式，你会选：',
         options: [
-          { label: '吃喝拉撒', value: 1 },
-          { label: '艺术爱好', value: 2 },
-          { label: '饮酒', value: 3 },
-          { label: '健身', value: 4 }
+          { label: '躺平刷短视频。', value: 1 },
+          { label: '看展、看书、装一下文化人。', value: 2 },
+          { label: '喝，今晚必须喝。', value: 3 },
+          { label: '运动一下，骗自己还健康。', value: 4 }
         ]
       },
       {
         id: 'drink_gate_q2',
         special: true,
         kind: 'drink_trigger',
-        text: '您对饮酒的态度是？',
+        text: '你和酒精的关系更接近哪句？',
         options: [
-          { label: '小酌怡情，喝不了太多。', value: 1 },
-          { label: '我习惯将白酒灌在保温杯，当白开水喝，酒精令我信服。', value: 2 }
+          { label: '偶尔喝两口，点到为止。', value: 1 },
+          { label: '白酒进保温杯，今晚我要跟现实狠狠干一架。', value: 2 }
         ]
       }
     ];
@@ -1865,79 +1888,79 @@ const TYPE_IMAGES = {
 ];
     const DIM_EXPLANATIONS = {
   "S1": {
-    "L": "对自己下手比别人还狠，夸你两句你都想先验明真伪。",
-    "M": "自信值随天气波动，顺风能飞，逆风先缩。",
-    "H": "心里对自己大致有数，不太会被路人一句话打散。"
+    "L": "破防阈值极低，别人顺手一晒，你的内心就开始局部塌方。",
+    "M": "表面能稳住，夜里还是会偷偷复盘自己的狼狈。",
+    "H": "脸皮韧性较强，不会被外界一点噪音轻易打散。"
   },
   "S2": {
-    "L": "内心频道雪花较多，常在“我是谁”里循环缓存。",
-    "M": "平时还能认出自己，偶尔也会被情绪临时换号。",
-    "H": "对自己的脾气、欲望和底线都算门儿清。"
+    "L": "对自己的症状像在雾里开车，知道自己不对劲，但说不明白。",
+    "M": "能认出一半病灶，另一半交给情绪随机发挥。",
+    "H": "对自己的发疯路数很清楚，至少知道自己烂在哪。"
   },
   "S3": {
-    "L": "更在意舒服和安全，没必要天天给人生开冲刺模式。",
-    "M": "想上进，也想躺会儿，价值排序经常内部开会。",
-    "H": "很容易被目标、成长或某种重要信念推着往前。"
+    "L": "野心残量偏低，今天能活完已经算给世界面子。",
+    "M": "偶尔想逆袭，偶尔想睡死，内在拉扯很频繁。",
+    "H": "心里还有一股劲，哪怕嘴上摆烂，骨子里也想狠狠干一把。"
   },
   "E1": {
-    "L": "感情里警报器灵敏，已读不回都能脑补到大结局。",
-    "M": "一半信任，一半试探，感情里常在心里拉锯。",
-    "H": "更愿意相信关系本身，不会被一点风吹草动吓散。"
+    "L": "消息一慢半拍，你就默认关系已经进了火葬场。",
+    "M": "会怀疑，也会自我安抚，内耗和理智各打一半。",
+    "H": "关系里的稳定感还行，不会因为一点静默就脑补大结局。"
   },
   "E2": {
-    "L": "感情投入偏克制，心门不是没开，是门禁太严。",
-    "M": "会投入，但会给自己留后手，不至于全盘梭哈。",
-    "H": "一旦认定就容易认真，情绪和精力都给得很足。"
+    "L": "感情里踩刹车很快，宁可冷一点，也不想再丢人。",
+    "M": "上头和清醒交替出现，像在感情里玩摇摇车。",
+    "H": "一旦认定就容易上头，情绪投资往往是真金白银地砸。"
   },
   "E3": {
-    "L": "容易黏人也容易被黏，关系里的温度感很重要。",
-    "M": "亲密和独立都要一点，属于可调节型依赖。",
-    "H": "空间感很重要，再爱也得留一块属于自己的地。"
+    "L": "你更吃黏人和陪伴，关系里要有热量才安心。",
+    "M": "既想贴贴又想呼吸，边界感处于弹性伸缩状态。",
+    "H": "电子围栏较厚，别人靠太近时你会本能性后撤。"
   },
   "A1": {
-    "L": "看世界自带防御滤镜，先怀疑，再靠近。",
-    "M": "既不天真也不彻底阴谋论，观望是你的本能。",
-    "H": "更愿意相信人性和善意，遇事不急着把世界判死刑。"
+    "L": "看世界先开防骗模式，善意来了也要先检查配料表。",
+    "M": "不算天真，也不算绝望，默认先观察再下判断。",
+    "H": "对人类还留有一点信心，不会把每次善意都当套路。"
   },
   "A2": {
-    "L": "规则能绕就绕，舒服和自由往往排在前面。",
-    "M": "该守的时候守，该变通的时候也不死磕。",
-    "H": "秩序感较强，能按流程来就不爱即兴炸场。"
+    "L": "守规矩这事随缘，规则挡路时你更想先冲再说。",
+    "M": "灵活和守序都沾一点，主要看风险值和当天心情。",
+    "H": "秩序感偏强，能不炸场就尽量不炸场。"
   },
   "A3": {
-    "L": "意义感偏低，容易觉得很多事都像在走过场。",
-    "M": "偶尔有目标，偶尔也想摆烂，人生观处于半开机。",
-    "H": "做事更有方向，知道自己大概要往哪边走。"
+    "L": "人生电量偏低，很多事在你眼里都像重复加载的垃圾弹窗。",
+    "M": "偶尔觉得还有戏，偶尔觉得不如直接关机重启。",
+    "H": "主线感还在，你知道自己至少还有点想奔的方向。"
   },
   "Ac1": {
-    "L": "做事先考虑别翻车，避险系统比野心更先启动。",
-    "M": "有时想赢，有时只想别麻烦，动机比较混合。",
-    "H": "更容易被成果、成长和推进感点燃。"
+    "L": "求生驱动主要是别出事，不求大赢，先别太惨。",
+    "M": "能推进一点是一点，但也没有燃到爆。",
+    "H": "更容易被结果、进展和成就感点燃。"
   },
   "Ac2": {
-    "L": "做决定前容易多转几圈，脑内会议常常超时。",
-    "M": "会想，但不至于想死机，属于正常犹豫。",
-    "H": "拍板速度快，决定一下就不爱回头磨叽。"
+    "L": "脑内会议经常超时，决定做不做都能反复卡顿。",
+    "M": "会犹豫，但还在正常人类可接受范围内。",
+    "H": "拍板速度快，决定了就不爱回头磨叽。"
   },
   "Ac3": {
-    "L": "执行力和死线有深厚感情，越晚越像要觉醒。",
-    "M": "能做，但状态看时机，偶尔稳偶尔摆。",
-    "H": "推进欲比较强，事情不落地心里都像卡了根刺。"
+    "L": "死线是你的电击器，不到最后一秒不会真正开机。",
+    "M": "拖延和执行并存，属于能救但不稳定。",
+    "H": "推进欲较强，事情悬着不落地会让你浑身难受。"
   },
   "So1": {
-    "L": "社交启动慢热，主动出击这事通常得攒半天气。",
-    "M": "有人来就接，没人来也不硬凑，社交弹性一般。",
-    "H": "更愿意主动打开场子，在人群里不太怕露头。"
+    "L": "群聊出没率偏低，社交常见操作是潜水、装死、消失。",
+    "M": "有气口就出来透一下，没气口也能自己待着。",
+    "H": "你更愿意主动出没和整活，在人群里不太怕冒头。"
   },
   "So2": {
-    "L": "关系里更想亲近和融合，熟了就容易把人划进内圈。",
-    "M": "既想亲近又想留缝，边界感看对象调节。",
-    "H": "边界感偏强，靠太近会先本能性后退半步。"
+    "L": "你对亲近感需求更高，熟了以后容易把人划进生活内圈。",
+    "M": "亲近和边界各占一半，主要看对象值不值得。",
+    "H": "贴贴排斥度偏高，私人领地神圣不可乱踩。"
   },
   "So3": {
-    "L": "表达更直接，心里有啥基本不爱绕。",
-    "M": "会看气氛说话，真实和体面通常各留一点。",
-    "H": "对不同场景的自我切换更熟练，真实感会分层发放。"
+    "L": "表达更直接，不爽就说，不太爱多拐那几道弯。",
+    "M": "会阴阳一点，也会留点面子，属于半真实半表演。",
+    "H": "切换术熟练，在不同人面前会放出不同版本的自己。"
   }
 };
     const dimensionOrder = ['S1','S2','S3','E1','E2','E3','A1','A2','A3','Ac1','Ac2','Ac3','So1','So2','So3'];
@@ -2051,8 +2074,8 @@ const TYPE_IMAGES = {
       const complete = done === total && total > 0;
       submitBtn.disabled = !complete;
       testHint.textContent = complete
-        ? '都做完了。现在可以把你的电子魂魄交给结果页审判。'
-        : '全选完才会放行。世界已经够乱了，起码把题做完整。';
+        ? '都选完了。现在把你的精神碎片提交给系统切片。'
+        : '全选完才会放行。发疯也得走流程。';
     }
 
     function sumToLevel(score) {
@@ -2197,65 +2220,27 @@ const TYPE_IMAGES = {
         levels[dim] = sumToLevel(score);
       });
 
-      const userVector = dimensionOrder.map(dim => levelNum(levels[dim]));
-      const ranked = NORMAL_TYPES.map(type => {
-        const vector = parsePattern(type.pattern).map(levelNum);
-        let distance = 0;
-        let exact = 0;
-        for (let i = 0; i < vector.length; i++) {
-          const diff = Math.abs(userVector[i] - vector[i]);
-          distance += diff;
-          if (diff === 0) exact += 1;
-        }
-        const similarity = Math.max(0, Math.round((1 - distance / 30) * 100));
-        return { ...type, ...TYPE_LIBRARY[type.code], distance, exact, similarity };
-      }).sort((a, b) => {
-        if (a.distance !== b.distance) return a.distance - b.distance;
-        if (b.exact !== a.exact) return b.exact - a.exact;
-        return b.similarity - a.similarity;
-      });
-
-      const bestNormal = ranked[0];
-      const drunkTriggered = getDrunkTriggered();
-
-      let finalType;
-      let modeKicker = '你的主类型';
-      let badge = `匹配度 ${bestNormal.similarity}% · 精准命中 ${bestNormal.exact}/15 维`;
-      let sub = '维度命中度较高，当前结果可视为你的第一人格画像。';
-      let special = false;
-      let secondaryType = null;
-
-      if (drunkTriggered) {
-        finalType = TYPE_LIBRARY.DRUNK;
-        secondaryType = bestNormal;
-        modeKicker = '隐藏人格已激活';
-        badge = '匹配度 100% · 酒精异常因子已接管';
-        sub = '乙醇亲和性过强，系统已直接跳过常规人格审判。';
-        special = true;
-      } else if (bestNormal.similarity < 60) {
-        finalType = TYPE_LIBRARY.HHHH;
-        modeKicker = '系统强制兜底';
-        badge = `标准人格库最高匹配仅 ${bestNormal.similarity}%`;
-        sub = '标准人格库对你的脑回路集体罢工了，于是系统把你强制分配给了 HHHH。';
-        special = true;
-      } else {
-        finalType = bestNormal;
-      }
-
       const viralProfile = computeViralProfile(levels);
+      const primary = viralProfile.primary;
+      const purity = Math.max(62, Math.min(99, Math.round((primary.viralScore / 29) * 100)));
 
       return {
         rawScores,
         levels,
-        ranked,
-        bestNormal,
-        finalType,
-        modeKicker,
-        badge,
-        sub,
-        special,
-        secondaryType,
-        viralProfile
+        ranked: viralProfile.ranked,
+        finalType: {
+          code: primary.code,
+          cn: primary.cn,
+          intro: primary.quote,
+          desc: `${primary.symptom}\n\n赛博医嘱：${primary.advice}`
+        },
+        modeKicker: '你的主发疯标签',
+        badge: `发疯纯度 ${purity}% · ${primary.scene}`,
+        sub: `${primary.alias} · 系统判定你今天最适合拿来截图辱骂自己和朋友。`,
+        special: getDrunkTriggered(),
+        secondaryType: viralProfile.secondary,
+        viralProfile,
+        purity
       };
     }
 
@@ -2315,23 +2300,23 @@ const TYPE_IMAGES = {
     function renderResult() {
       const result = computeResult();
       const type = result.finalType;
+      const primary = result.viralProfile.primary;
+      const nemesis = result.viralProfile.nemesis;
 
       document.getElementById('resultModeKicker').textContent = result.modeKicker;
       document.getElementById('resultTypeName').textContent = `${type.code}（${type.cn}）`;
       document.getElementById('matchBadge').textContent = result.badge;
       document.getElementById('resultTypeSub').textContent = result.sub;
       document.getElementById('resultDesc').textContent = type.desc;
-      document.getElementById('posterCaption').textContent = type.intro;
-      document.getElementById('funNote').textContent = result.special
-        ? '本测试仅供娱乐。隐藏人格和傻乐兜底都属于作者故意埋的损招，请勿把它当成医学、心理学、相学、命理学或灵异学依据。'
-        : '本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。你可以笑，但别太当真。';
+      document.getElementById('posterCaption').textContent = `“${primary.quote}”`;
+      document.getElementById('funNote').textContent = `系统医嘱：${primary.advice} 赛博克星提醒：${nemesis.reason}`;
 
       const posterBox = document.getElementById('posterBox');
       const posterImage = document.getElementById('posterImage');
-      const imageSrc = TYPE_IMAGES[type.code];
+      const imageSrc = getViralImageSrc(primary.code);
       if (imageSrc) {
         posterImage.src = imageSrc;
-        posterImage.alt = `${type.code}（${type.cn}）`;
+        posterImage.alt = `${primary.code}（${primary.cn}）`;
         posterBox.classList.remove('no-image');
       } else {
         posterImage.removeAttribute('src');
