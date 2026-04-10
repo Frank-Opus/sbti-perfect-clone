@@ -609,6 +609,100 @@
       line-height: 1.8;
     }
 
+    .combo-box {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at top left, rgba(127,165,134,0.14), rgba(127,165,134,0) 34%),
+        linear-gradient(180deg, #ffffff, #fbfdfb);
+    }
+    .combo-tags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .combo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--accent-strong);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .combo-plus {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent-strong);
+      line-height: 1;
+    }
+    .combo-diagnosis {
+      margin: 16px 0 0;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #243126;
+      font-weight: 700;
+    }
+    .combo-copy {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .combo-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,0.92);
+    }
+    .combo-card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+    .combo-card .mini-kicker {
+      color: var(--accent-strong);
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .combo-card .mini-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.5;
+      color: #243126;
+    }
+    .combo-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .combo-quote {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: #314133;
+      font-size: 13px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
     .author-box {
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -663,6 +757,7 @@
     }
     @media (max-width: 860px) {
       .result-top { grid-template-columns: 1fr; }
+      .combo-grid { grid-template-columns: 1fr; }
     }
 
 @media (max-width: 860px) {
@@ -750,6 +845,38 @@
           <div class="analysis-box">
             <h3>该人格的简单解读</h3>
             <p id="resultDesc"></p>
+          </div>
+
+          <div class="combo-box">
+            <div class="type-kicker">本次赛博确诊</div>
+            <div class="combo-tags" id="resultTags">
+              <span class="combo-tag" id="comboPrimaryTag">MALO 吗喽</span>
+              <span class="combo-plus">+</span>
+              <span class="combo-tag" id="comboSecondaryTag">DXLS 带薪拉屎冠军</span>
+            </div>
+            <p class="combo-diagnosis" id="comboDiagnosis">你的 SBTI 是：【MALO 吗喽】 + 【DXLS 带薪拉屎冠军】 = 确诊为“职场老油条变异种”。</p>
+            <p class="combo-copy" id="comboSummary">这块会显示本次双标签组合后的赛博判词。</p>
+
+            <div class="combo-grid">
+              <div class="combo-card" id="primaryComboCard">
+                <div class="mini-kicker">主发疯标签</div>
+                <div class="mini-title">MALO / 吗喽</div>
+                <p>你的主症状会显示在这里。</p>
+                <div class="combo-quote">“吗喽的命也是命。”</div>
+              </div>
+              <div class="combo-card" id="secondaryComboCard">
+                <div class="mini-kicker">副发疯标签</div>
+                <div class="mini-title">DXLS / 带薪拉屎冠军</div>
+                <p>你的副症状会显示在这里。</p>
+                <div class="combo-quote">“老板假装给我发工资，我就假装在工作。”</div>
+              </div>
+              <div class="combo-card" id="nemesisCard">
+                <div class="mini-kicker">赛博克星</div>
+                <div class="mini-title">JDFZ / 薛定谔的疯子</div>
+                <p>如果遇到这种人，系统会建议你迅速提桶跑路。</p>
+                <div class="combo-quote">“惹到我，你算是踢到棉花了。”</div>
+              </div>
+            </div>
           </div>
 
           <div class="dim-box">
@@ -1264,7 +1391,7 @@
     "desc": "您为什么走路摇摇晃晃？您为什么总是情绪高涨？您为什么看东西是重影的？因为您体内流淌的不是血液，是美味的五粮液！是国窖1573！是江小白！是陕西五粮液！哦，美味的白酒，每一滴都在燃烧，都在沸腾。您是否已经习惯了将白酒灌入保温杯，当作白开水一饮而下？多么伟大的白酒！它让您在饭桌上谈笑风生，在厕所里抱着马桶忏悔人生；它让您觉得自己是夜场诗人，是宇宙中心那团不灭的火，直到第二天上午十点，您的头像裂开的核桃，嘴角挂着食物残渣，灵魂缩在角落里。您终于明白，昨晚那个高谈阔论、拍桌怒吼的人，已经成为了一个酒鬼。"
   }
 };
-    const TYPE_IMAGES = {
+const TYPE_IMAGES = {
   "IMSB": "./image/IMSB.png",
   "BOSS": "./image/BOSS.png",
   "MUM": "./image/MUM.png",
@@ -1293,6 +1420,336 @@
   "DRUNK": "./image/DRUNK.png",
   "IMFW": "./image/IMFW.png"
 };
+
+    const VIRAL_ARCHETYPES = [
+  {
+    code: "MALO",
+    cn: "吗喽",
+    alias: "天选吗喽型",
+    scene: "精神状态与发疯区",
+    symptom: "每天都在后悔几万年前从树上下来，复杂问题一来就只想吃香蕉和挠痒痒。",
+    quote: "吗喽的命也是命。",
+    advice: "建议尽早返回峨眉山或花果山就医，人类社会不适合你。",
+    levels: { S2: "L", A2: "L", A3: "L", Ac3: "L", So1: "L" },
+    answers: { q16: [1], q18: [1], q23: [1] },
+    nemesis: [
+      { code: "BZY", reason: "你只想装死，TA却总能精准把烂活塞进你怀里。" },
+      { code: "ZDPG", reason: "你刚想阿巴阿巴，TA已经在评论区给你判了三年。" }
+    ]
+  },
+  {
+    code: "YYQZ",
+    cn: "仰卧起坐型废物",
+    alias: "间歇性踌躇满志",
+    scene: "精神状态与发疯区",
+    symptom: "深夜常立凌云志，清晨闹钟一响就想把理想和早八一起埋了。",
+    quote: "只要我滑跪得够快，生活的巴掌就打不到我。",
+    advice: "别挣扎了，你的努力像极了断电前闪烁的那两下灯泡。",
+    levels: { S3: "M", A3: "L", Ac2: "L", Ac3: "L" },
+    answers: { q21: [1], q23: [1], q24: [1, 2] },
+    nemesis: [
+      { code: "BOSS", reason: "TA的执行力会把你的宏愿衬托成夜宵时说的醉话。" },
+      { code: "TMDS", reason: "你还在热血，TA已经一脸看破红尘地说随便吧。" }
+    ]
+  },
+  {
+    code: "ABAA",
+    cn: "脑干缺失型",
+    alias: "纯血阿米巴原虫",
+    scene: "精神状态与发疯区",
+    symptom: "主打一个清澈的愚蠢，别人卷生卷死，你在旁边阿巴阿巴。",
+    quote: "啊？啥？卧槽！",
+    advice: "傻人有傻福，但傻X没有。请保护好自己，你很容易被骗去缅北。",
+    levels: { S2: "L", Ac2: "L", So3: "L", A3: "M" },
+    answers: { q3: [1], q22: [1, 2, 3] },
+    nemesis: [
+      { code: "ZDPG", reason: "TA最擅长把你的迷糊状态判成低级错误并公开处刑。" },
+      { code: "YDLH", reason: "你已经听不懂了，TA还要继续已读乱回。" }
+    ]
+  },
+  {
+    code: "YDLH",
+    cn: "已读乱回大师",
+    alias: "赛博神经病",
+    scene: "精神状态与发疯区",
+    symptom: "彻底放弃正常沟通，通过让别人无语来获取一点点心理快感。",
+    quote: "只要我没有逻辑，就没有人能道德绑架我。",
+    advice: "建议送往当地精神病院进行切片研究。",
+    levels: { So3: "H", A2: "L", So1: "M", Ac2: "H" },
+    answers: { q30: [3], q16: [1], q21: [3] },
+    nemesis: [
+      { code: "THIN-K", reason: "TA会当场给你的疯话做逻辑尸检。" },
+      { code: "KPTA", reason: "你发疯半天，TA只回一句哦，是吗，直接给你整破防。" }
+    ]
+  },
+  {
+    code: "JDFZ",
+    cn: "薛定谔的疯子",
+    alias: "内向型暴徒",
+    scene: "精神状态与发疯区",
+    symptom: "表面唯唯诺诺，内心已经把对方祖坟刨了十八遍。",
+    quote: "惹到我，你算是踢到棉花了。",
+    advice: "买个沙袋吧，别把自己憋出乳腺结节。",
+    levels: { So1: "L", So2: "H", So3: "H", A1: "L" },
+    answers: { q27: [3], q29: [3], q30: [3] },
+    nemesis: [
+      { code: "DXLS", reason: "TA根本不接你的情绪戏码，直接躲厕所让你独自内耗。" },
+      { code: "KPTA", reason: "TA的情绪稳定像一堵墙，能把你的暗疯全反弹回来。" }
+    ]
+  },
+  {
+    code: "DXLS",
+    cn: "带薪拉屎冠军",
+    alias: "厕所驻扎者",
+    scene: "职场与搞钱区",
+    symptom: "上班每多待一秒都是对生命的亵渎，厕所才是你的第二工位。",
+    quote: "老板假装给我发工资，我就假装在工作。",
+    advice: "小心久坐得痔疮，记得换坑位，别让保洁阿姨记住你的鞋。",
+    levels: { Ac3: "L", A3: "L", So1: "L", A2: "M" },
+    answers: { q23: [1], q24: [1], q20: [1] },
+    nemesis: [
+      { code: "BOSS", reason: "TA能在你蹲坑时精准发消息催进度，让你原地社死。" },
+      { code: "BZY", reason: "TA会把你的摸鱼时间也算进排班表，烂活照样回到你头上。" }
+    ]
+  },
+  {
+    code: "QCGG",
+    cn: "清澈的穷鬼",
+    alias: "赛博化缘师",
+    scene: "职场与搞钱区",
+    symptom: "钱包比脸干净，APP 的唯一作用就是领券、砍价和到处 V 我 50。",
+    quote: "钱虽然没长在我身上，但穷病却刻在了我骨子里。",
+    advice: "找个班上吧，实在不行去天桥底下占个好位置。",
+    levels: { A3: "L", Ac1: "L", Ac3: "L", So1: "M" },
+    answers: { q17: [1], q19: [1], q23: [1] },
+    nemesis: [
+      { code: "WFSG", reason: "TA一开口就是以后有钱了，听得你更想打开花呗。" },
+      { code: "BOSS", reason: "TA张口闭口目标和规划，能把你的穷鬼滤镜照得更惨。" }
+    ]
+  },
+  {
+    code: "BZY",
+    cn: "吸活磁铁型",
+    alias: "天选大怨种",
+    scene: "职场与搞钱区",
+    symptom: "你不是在接活，你是在吸附全公司的烂摊子和锅。",
+    quote: "这活儿怎么又 TM 是我干？",
+    advice: "学会说我不行我不会我干不了，能让你多活二十年。",
+    levels: { S1: "L", E3: "L", Ac3: "H", So2: "L" },
+    answers: { q11: [1], q23: [3], q28: [1] },
+    nemesis: [
+      { code: "TMDS", reason: "TA看见烂活就自动隐身，最后全都精准落在你头上。" },
+      { code: "DXLS", reason: "TA在厕所修仙的时候，你在工位替所有人擦屁股。" }
+    ]
+  },
+  {
+    code: "WFSG",
+    cn: "微服私访型",
+    alias: "精神董事局主席",
+    scene: "职场与搞钱区",
+    symptom: "明明月薪三千，却天天操心公司战略、国际局势和未来上市敲钟。",
+    quote: "等我以后有钱了……",
+    advice: "醒醒，工头叫你去搬砖了。",
+    levels: { S3: "H", A3: "H", Ac1: "H", S1: "M" },
+    answers: { q5: [3], q17: [3], q19: [3] },
+    nemesis: [
+      { code: "QCGG", reason: "TA会用余额提醒你，你其实离董事会还差至少十次发薪日。" },
+      { code: "TMDS", reason: "TA一句随便吧就能把你的宏大战略削成笑话。" }
+    ]
+  },
+  {
+    code: "TMDS",
+    cn: "脱敏大师",
+    alias: "死猪不怕开水烫",
+    scene: "职场与搞钱区",
+    symptom: "面对老板画饼、同事内卷、客户刁难，内心毫无波澜甚至有点想笑。",
+    quote: "随便吧，毁灭吧，赶紧的。",
+    advice: "你的心理素质已经可以去中东当战地记者了。",
+    levels: { A1: "L", A3: "L", Ac1: "L", E2: "L" },
+    answers: { q13: [1], q18: [1], q19: [1] },
+    nemesis: [
+      { code: "WFSG", reason: "TA那股没苦硬吃的热血会让你的摆烂哲学短暂失效。" },
+      { code: "BZY", reason: "你刚说随便吧，下一秒烂活已经打包送到你桌上。" }
+    ]
+  },
+  {
+    code: "NPCM",
+    cn: "铁血背景板",
+    alias: "世界的凑数者",
+    scene: "日常与社交区",
+    symptom: "你的人生像在给别人打补光，在聚会角落玩手机，在群聊最后接话。",
+    quote: "我连当个配角都嫌台词太多。",
+    advice: "挺好的，NPC 不用承担拯救世界的责任，活得久。",
+    levels: { So1: "L", S1: "L", Ac1: "L", E2: "L" },
+    answers: { q25: [1], q26: [1], q19: [1] },
+    nemesis: [
+      { code: "ZDPG", reason: "TA会把你安静站角落的样子都挑出三条评论。" },
+      { code: "YDLH", reason: "你想低调退场，TA非要把场子搞成无语问苍天。" }
+    ]
+  },
+  {
+    code: "HYDS",
+    cn: "哈哈哈敷衍仪",
+    alias: "社交电量极速流失者",
+    scene: "日常与社交区",
+    symptom: "表面哈哈哈哈，实际上灵魂已经出窍，只想赶紧回家躺平。",
+    quote: "哈（已死）哈（想逃）哈（别说了）哈。",
+    advice: "键盘上的 H 和 A 键建议多备几个。",
+    levels: { So1: "L", So3: "H", So2: "M", E2: "M" },
+    answers: { q25: [1], q29: [2], q30: [3] },
+    nemesis: [
+      { code: "YDLH", reason: "TA的已读乱回会把你的礼貌敷衍逼成真实崩溃。" },
+      { code: "ZDPG", reason: "TA会从你一串哈哈哈里抠出态度问题并公开审判。" }
+    ]
+  },
+  {
+    code: "FFF",
+    cn: "防辐射服型",
+    alias: "绝对防御壁垒",
+    scene: "日常与社交区",
+    symptom: "只要有人试图靠近你，你的第一反应不是心动，而是拉响一级防空警报。",
+    quote: "智者不入爱河，寡王一路硕博。",
+    advice: "恭喜你，你已经修成了金刚不坏之身，准备孤独终老吧。",
+    levels: { E2: "L", E3: "H", So2: "H", So1: "L" },
+    answers: { q11: [3], q12: [3], q27: [3] },
+    nemesis: [
+      { code: "MUM", reason: "TA那种无差别关心会逼得你结界报警连响三次。" },
+      { code: "LOVE-R", reason: "TA的浓度太高，会把你的防御系统烧出火花。" }
+    ]
+  },
+  {
+    code: "ZDPG",
+    cn: "赛博判官",
+    alias: "杠精祖师爷",
+    scene: "日常与社交区",
+    symptom: "现实里唯唯诺诺，网络上重拳出击，看什么都想在评论区判一下。",
+    quote: "抛开事实不谈，难道你就没有错吗？",
+    advice: "建议去修个法学学位，别浪费了这身抬杠的力气。",
+    levels: { A1: "L", So3: "H", So1: "M", Ac2: "H" },
+    answers: { q13: [1], q29: [3], q30: [3] },
+    nemesis: [
+      { code: "KPTA", reason: "你打了三百字，TA只回一句挺好的，直接把你整空蓝。" },
+      { code: "TMDS", reason: "TA根本不接你话茬，让你的抬杠无处借力。" }
+    ]
+  },
+  {
+    code: "KPTA",
+    cn: "卡皮巴拉型",
+    alias: "情绪阉割者",
+    scene: "日常与社交区",
+    symptom: "极度情绪稳定，稳定得像一具尸体，别人吵架你吃瓜，别人失恋你睡觉。",
+    quote: "哦，是吗，挺好的。",
+    advice: "建议去寺庙当主持，或者直接原地飞升。",
+    levels: { E1: "H", E2: "L", A1: "M", So3: "L" },
+    answers: { q7: [3], q9: [1], q29: [1] },
+    nemesis: [
+      { code: "JDFZ", reason: "TA那种憋着疯的气场，会逼得你都想多看两眼。" },
+      { code: "YDLH", reason: "TA的胡言乱语会强迫你的情绪系统被动重启。" }
+    ]
+  },
+  {
+    code: "DDDZ",
+    cn: "大动脉断裂",
+    alias: "究极脆皮",
+    scene: "健康与作息区",
+    symptom: "身体素质不如七十岁大爷，伸个懒腰抽筋，打个喷嚏闪腰。",
+    quote: "医生，我还能活到下个发薪日吗？",
+    advice: "建议把自己泡在福尔马林里，或者裹上气泡膜再出门。",
+    levels: { S1: "L", Ac3: "L", So1: "L", A3: "L" },
+    answers: { q2: [1], q23: [1], q25: [1] },
+    nemesis: [
+      { code: "WFSG", reason: "TA的宏大理想会让你怀疑自己下一秒就得先去挂急诊。" },
+      { code: "BOSS", reason: "TA一说冲，你的腰先替你表示反对。" }
+    ]
+  },
+  {
+    code: "ZDXX",
+    cn: "被动修仙型",
+    alias: "报复性熬夜狂魔",
+    scene: "健康与作息区",
+    symptom: "白天困得像狗，一到凌晨双眼放光，舍不得把一天交给睡眠。",
+    quote: "生前何必久睡，死后自会长眠。",
+    advice: "已经可以开始挑选喜欢的骨灰盒款式了。",
+    levels: { Ac3: "L", Ac1: "L", A3: "L", So1: "L" },
+    answers: { q23: [1], q24: [1], q17: [1] },
+    nemesis: [
+      { code: "BOSS", reason: "TA早睡早起高效推进的样子会把你的黑眼圈照得更重。" },
+      { code: "YYQZ", reason: "你们会互相给对方立志，最后一起熬到天亮。" }
+    ]
+  },
+  {
+    code: "WDSS",
+    cn: "五毒俱全型",
+    alias: "赛博神农氏",
+    scene: "健康与作息区",
+    symptom: "熬最晚的夜，吃最垃圾的外卖，喝最甜的奶茶，还坚决不运动。",
+    quote: "只要我不去体检，我就没病。",
+    advice: "你的身体还能运转，简直是医学界的奇迹。",
+    levels: { A2: "L", Ac3: "L", A3: "L", E3: "L" },
+    answers: { drink_gate_q1: [1, 3], q15: [1], q20: [2] },
+    nemesis: [
+      { code: "DDDZ", reason: "TA会用自己一身脆皮症状提醒你，作死是有后果的。" },
+      { code: "CTMD", reason: "TA边敲电子木鱼边劝你少造孽，会显得你更像在折磨器官。" }
+    ]
+  },
+  {
+    code: "BLC",
+    cn: "半流体生物",
+    alias: "床铺共生体",
+    scene: "健康与作息区",
+    symptom: "只要有平坦的地方就能瞬间失去骨骼支撑，休息日动线只有床和外卖门口。",
+    quote: "站着不如坐着，坐着不如躺着。",
+    advice: "建议进化成史莱姆，这辈子别站起来了。",
+    levels: { Ac3: "L", A3: "L", So1: "L", S3: "L" },
+    answers: { q23: [1], q24: [1], q25: [1] },
+    nemesis: [
+      { code: "BOSS", reason: "TA恨不得把你的床折成办公桌，让你彻底无处可躺。" },
+      { code: "GOGO", reason: "TA的行动力会像拖车一样把你从床单里硬拽出来。" }
+    ]
+  },
+  {
+    code: "CTMD",
+    cn: "赛博活佛",
+    alias: "敲电子木鱼者",
+    scene: "健康与作息区",
+    symptom: "每天在发火和出家之间反复横跳，靠电子木鱼和赛博玄学勉强维持体面。",
+    quote: "佛祖保佑我今天不要骂人。",
+    advice: "功德已经加满了，可以考虑去给 AI 算个命。",
+    levels: { A1: "M", So2: "H", So3: "M", E1: "M" },
+    answers: { q13: [2, 3], q27: [3], q29: [2, 3] },
+    nemesis: [
+      { code: "ZDPG", reason: "TA一句抛开事实不谈，就能让你白敲半天电子木鱼。" },
+      { code: "YDLH", reason: "TA的神经病式回话会让你的佛系修行直接破功。" }
+    ]
+  }
+];
+
+    const VIRAL_BY_CODE = Object.fromEntries(
+      VIRAL_ARCHETYPES.map((item) => [item.code, item])
+    );
+
+    const SPECIAL_COMBO_TITLES = {
+      "DXLS+MALO": "职场老油条变异种",
+      "BLC+ZDXX": "床上修仙永动机",
+      "CTMD+TMDS": "电子木鱼冷感圣体",
+      "FFF+HYDS": "社交假笑防空洞",
+      "NPCM+ABAA": "凑数型低电量生物",
+      "QCGG+DXLS": "工资蒸发潜伏体",
+      "YYQZ+ZDXX": "熬夜立志失败体"
+    };
+
+    const SCENE_COMBO_TITLES = {
+      "精神状态与发疯区": "纯度超标发疯实验体",
+      "职场与搞钱区": "班味过载打工异种",
+      "日常与社交区": "社交系统错频样本",
+      "健康与作息区": "随时猝死续命装置",
+      "健康与作息区|日常与社交区": "低电量离线装置",
+      "健康与作息区|精神状态与发疯区": "半死不活觉醒种",
+      "健康与作息区|职场与搞钱区": "带病上班续命体",
+      "日常与社交区|精神状态与发疯区": "高敏发疯社交体",
+      "日常与社交区|职场与搞钱区": "社畜社交串味体",
+      "精神状态与发疯区|职场与搞钱区": "职场老油条变异种"
+    };
 
     const NORMAL_TYPES = [
   {
@@ -1606,6 +2063,113 @@
       return app.answers[DRUNK_TRIGGER_QUESTION_ID] === 2;
     }
 
+    function buildAnswerSeed() {
+      return Object.keys(app.answers)
+        .sort()
+        .reduce((acc, key) => {
+          const value = Number(app.answers[key] || 0);
+          for (const ch of `${key}:${value}|`) {
+            acc = Math.imul(acc ^ ch.charCodeAt(0), 16777619);
+          }
+          return acc >>> 0;
+        }, 2166136261);
+    }
+
+    function seededUnit(seed, salt) {
+      let hash = seed >>> 0;
+      for (const ch of salt) {
+        hash = Math.imul(hash ^ ch.charCodeAt(0), 16777619);
+      }
+      return (hash >>> 0) / 4294967295;
+    }
+
+    function getSortedPairKey(a, b) {
+      return [a, b].sort().join("|");
+    }
+
+    function scoreViralArchetype(archetype, levels, seed) {
+      let score = 0;
+      Object.entries(archetype.levels).forEach(([dim, targetLevel]) => {
+        const diff = Math.abs(levelNum(levels[dim]) - levelNum(targetLevel));
+        score += 4 - diff;
+      });
+
+      Object.entries(archetype.answers || {}).forEach(([questionId, expectedValues]) => {
+        const values = Array.isArray(expectedValues) ? expectedValues : [expectedValues];
+        if (values.includes(app.answers[questionId])) {
+          score += 2.5;
+        }
+      });
+
+      if (getDrunkTriggered() && ["WDSS", "CTMD", "ZDXX"].includes(archetype.code)) {
+        score += 1.5;
+      }
+
+      return score + seededUnit(seed, archetype.code);
+    }
+
+    function pickNemesis(primary, secondary, ranked, seed) {
+      const explicitPool = [...(primary.nemesis || []), ...(secondary.nemesis || [])]
+        .filter((item) => item.code !== primary.code && item.code !== secondary.code)
+        .filter((item, index, list) => list.findIndex((other) => other.code === item.code) === index);
+
+      if (explicitPool.length > 0) {
+        const pickIndex = Math.floor(seededUnit(seed, "nemesis") * explicitPool.length);
+        const picked = explicitPool[pickIndex] || explicitPool[0];
+        return {
+          ...VIRAL_BY_CODE[picked.code],
+          reason: picked.reason
+        };
+      }
+
+      const fallback = ranked.find(
+        (item) => item.code !== primary.code && item.code !== secondary.code
+      );
+      return {
+        ...fallback,
+        reason: "这种人格天生和你磁场相冲，遇上了多半得互相折磨。"
+      };
+    }
+
+    function buildComboDiagnosis(primary, secondary) {
+      const pairCodeKey = [primary.code, secondary.code].sort().join("+");
+      const pairSceneKey = getSortedPairKey(primary.scene, secondary.scene);
+      const diagnosisTitle = SPECIAL_COMBO_TITLES[pairCodeKey]
+        || SCENE_COMBO_TITLES[pairSceneKey]
+        || `${primary.cn}${secondary.cn}串味危险体`;
+
+      return {
+        title: diagnosisTitle,
+        text: `你的 SBTI 是：【${primary.code} ${primary.cn}】 + 【${secondary.code} ${secondary.cn}】 = 确诊为“${diagnosisTitle}”。`,
+        summary: `主症状是：${primary.symptom} 副症状是：${secondary.symptom} 建议直接截图发群，看看谁才是你命中注定的发疯共振体。`
+      };
+    }
+
+    function computeViralProfile(levels) {
+      const seed = buildAnswerSeed();
+      const ranked = VIRAL_ARCHETYPES
+        .map((archetype) => ({
+          ...archetype,
+          viralScore: scoreViralArchetype(archetype, levels, seed)
+        }))
+        .sort((a, b) => b.viralScore - a.viralScore);
+
+      const primary = ranked[0];
+      const secondary = ranked.find(
+        (item) => item.code !== primary.code && item.scene !== primary.scene
+      ) || ranked[1];
+      const combo = buildComboDiagnosis(primary, secondary);
+      const nemesis = pickNemesis(primary, secondary, ranked, seed);
+
+      return {
+        ranked,
+        primary,
+        secondary,
+        combo,
+        nemesis
+      };
+    }
+
     function computeResult() {
       const rawScores = {};
       const levels = {};
@@ -1664,6 +2228,8 @@
         finalType = bestNormal;
       }
 
+      const viralProfile = computeViralProfile(levels);
+
       return {
         rawScores,
         levels,
@@ -1674,7 +2240,8 @@
         badge,
         sub,
         special,
-        secondaryType
+        secondaryType,
+        viralProfile
       };
     }
 
@@ -1693,6 +2260,39 @@
           </div>
         `;
       }).join('');
+    }
+
+    function renderViralProfile(profile) {
+      const { primary, secondary, combo, nemesis } = profile;
+
+      document.getElementById('comboPrimaryTag').textContent = `${primary.code} ${primary.cn}`;
+      document.getElementById('comboSecondaryTag').textContent = `${secondary.code} ${secondary.cn}`;
+      document.getElementById('comboDiagnosis').textContent = combo.text;
+      document.getElementById('comboSummary').textContent = combo.summary;
+
+      document.getElementById('primaryComboCard').innerHTML = `
+        <div class="mini-kicker">主发疯标签 · ${primary.scene}</div>
+        <div class="mini-title">${primary.code} / ${primary.cn}</div>
+        <p>${primary.alias}</p>
+        <p>${primary.symptom}</p>
+        <div class="combo-quote">“${primary.quote}”<br />${primary.advice}</div>
+      `;
+
+      document.getElementById('secondaryComboCard').innerHTML = `
+        <div class="mini-kicker">副发疯标签 · ${secondary.scene}</div>
+        <div class="mini-title">${secondary.code} / ${secondary.cn}</div>
+        <p>${secondary.alias}</p>
+        <p>${secondary.symptom}</p>
+        <div class="combo-quote">“${secondary.quote}”<br />${secondary.advice}</div>
+      `;
+
+      document.getElementById('nemesisCard').innerHTML = `
+        <div class="mini-kicker">赛博克星</div>
+        <div class="mini-title">${nemesis.code} / ${nemesis.cn}</div>
+        <p>${nemesis.alias}</p>
+        <p>${nemesis.reason}</p>
+        <div class="combo-quote">“${nemesis.quote}”<br />${nemesis.advice}</div>
+      `;
     }
 
     function renderResult() {
@@ -1722,6 +2322,7 @@
         posterBox.classList.add('no-image');
       }
 
+      renderViralProfile(result.viralProfile);
       renderDimList(result);
       showScreen('result');
     }
