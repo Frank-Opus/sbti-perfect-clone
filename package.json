@@ -5,6 +5,7 @@
   "scripts": {
     "pretest:fidelity": "playwright install chromium",
     "test:fidelity": "node scripts/fidelity-check.mjs",
+    "test:e2e": "node scripts/viral-results-check.mjs",
     "deploy:prod": "npx vercel@latest deploy --prod --yes"
   },
   "dependencies": {

@@ -2,4 +2,5 @@
 .vercel/
 .verify/
 .fidelity-output/
+__pycache__/
 node_modules/

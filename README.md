@@ -1,6 +1,6 @@
-# SBTI Perfect Clone
+# Cyber Meltdown Labels
 
-A local, offline-runnable clone of `https://sbti.unun.dev/`.
+A local, offline-runnable `赛博发疯标签系统` remake based on the original `https://sbti.unun.dev/`.
 
 ## Run locally
 
@@ -18,14 +18,20 @@ Then open `http://127.0.0.1:4173/`.
 npm install
 ```
 
-The first fidelity run will install the Playwright Chromium binary automatically.
+The first E2E run will install the Playwright Chromium binary automatically.
 
-## Verify fidelity
+## Verify E2E
 
-Source-vs-local parity:
+Run the local browser-based verification:
 
 ```bash
 npm run test:fidelity
+```
+
+Direct script entry:
+
+```bash
+npm run test:e2e
 ```
 
 ## Publish
@@ -38,13 +44,14 @@ npm run deploy:prod
 
 ## Included
 
-- `index.html`: the fully cloned single-page app
+- `index.html`: the single-page cyber label quiz app
 - `image/`: all poster assets used by the result page
-- `.verify/`: local screenshot verification artifacts
-- `scripts/fidelity-check.mjs`: deterministic browser-based parity check
+- `.verify/`: local verification artifacts
+- `scripts/viral-results-check.mjs`: deterministic browser-based E2E check
+- `scripts/fidelity-check.mjs`: compatibility entry that forwards to the E2E check
 
 ## Notes
 
-- The UI, copy, quiz flow, scoring logic, and result rendering are cloned from the live site as of 2026-04-09.
-- Cloudflare analytics was intentionally removed so the local clone does not report events to the original site.
-- The analytics removal is the only intentional difference from the live source and does not affect user-visible behavior.
+- This repo no longer targets source-vs-source visual parity.
+- It now ships the rewritten 28-question `赛博发疯标签系统`, custom result logic, stage popups, and generated poster assets.
+- Original author credit is preserved in the app, and Frank is listed as the remake maintainer.
